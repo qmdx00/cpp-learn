@@ -4,15 +4,64 @@
 
 using namespace std;
 
-Status InitSqList(SqList &L, int len)
+Status InitSqList(SqList &L)
 {
-    if (len > MAX_SIZE || len < 0)
+    L.data = (ElementType *)malloc(sizeof(ElementType) * MAX_SIZE);
+    L.length = 0;
+    return OK;
+}
+
+Status InsertElement(SqList &L, int idx, ElementType ele)
+{
+    if (L.length >= MAX_SIZE)
     {
-        L.length = 0;
-        cerr << len << " is a invalid length of sequence list !, it's from 0 to " << MAX_SIZE << endl;
+        cerr << "sequence list is full" << endl;
+        return OVERFLOW;
+    }
+    
+    if (idx < 0 || idx > L.length)
+    {
+        cerr << "invalid position to insert" << idx << endl;
         return ERROR;
     }
-    L.data = (ElementType*)malloc(sizeof(ElementType)*len);
-    L.length = len;
+    for (int i = L.length; i >= idx; i--)
+    {
+        L.data[i] = L.data[i - 1];
+    }
+    L.data[idx] = ele;
+    L.length++;
     return OK;
+}
+
+Status DeleteElement(SqList &L, int idx, ElementType &ele)
+{
+    if (idx < 0 || idx >= L.length)
+    {
+        cerr << "invalid position to delete :" << idx << endl;
+        ele = -1;
+        return ERROR;
+    }
+
+    ele = L.data[idx];
+    for (int i = idx; i < L.length - 1; i++)
+    {
+        L.data[i] = L.data[i + 1];
+    }
+    L.length--;
+    return OK;
+}
+
+void TraversalList(SqList L)
+{
+    if (L.length == 0) 
+    {
+        cout << "[ ]" << endl;
+        return;
+    }
+    cout << "[ ";
+    for (int i = 0; i < L.length - 1; i++)
+    {
+        cout << L.data[i] << ", ";
+    }
+    cout << L.data[L.length - 1] << " ]" << endl;
 }
