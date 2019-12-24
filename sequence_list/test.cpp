@@ -25,5 +25,7 @@ int main(int argc, char const *argv[])
     InsertElement(list, list.length, 100);
     TraversalList(list);
 
+    DestroyList(list);
+
     return 0;
 }

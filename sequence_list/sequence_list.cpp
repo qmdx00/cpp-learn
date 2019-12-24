@@ -1,12 +1,11 @@
 #include "sequence_list.h"
-#include <stdlib.h>
 #include <iostream>
 
 using namespace std;
 
 Status InitSqList(SqList &L)
 {
-    L.data = (ElementType *)malloc(sizeof(ElementType) * MAX_SIZE);
+    L.data = new ElementType[MAX_SIZE];
     L.length = 0;
     return OK;
 }
@@ -18,7 +17,7 @@ Status InsertElement(SqList &L, int idx, ElementType ele)
         cerr << "sequence list is full" << endl;
         return OVERFLOW;
     }
-    
+
     if (idx < 0 || idx > L.length)
     {
         cerr << "invalid position to insert" << idx << endl;
@@ -53,7 +52,7 @@ Status DeleteElement(SqList &L, int idx, ElementType &ele)
 
 void TraversalList(SqList L)
 {
-    if (L.length == 0) 
+    if (L.length == 0)
     {
         cout << "[ ]" << endl;
         return;
@@ -64,4 +63,11 @@ void TraversalList(SqList L)
         cout << L.data[i] << ", ";
     }
     cout << L.data[L.length - 1] << " ]" << endl;
+}
+
+Status DestroyList(SqList &L)
+{
+    delete[] L.data;
+    L.length = 0;
+    return OK;
 }
