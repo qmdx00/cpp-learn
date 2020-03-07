@@ -5,12 +5,12 @@ using namespace std;
 
 Status InitSqList(SqList &L)
 {
-    L.data = new ElementType[MAX_SIZE];
+    L.data = new ElemType[MAX_SIZE];
     L.length = 0;
     return OK;
 }
 
-Status InsertElement(SqList &L, int idx, ElementType ele)
+Status InsertElement(SqList &L, int idx, ElemType ele)
 {
     if (L.length >= MAX_SIZE)
     {
@@ -32,7 +32,7 @@ Status InsertElement(SqList &L, int idx, ElementType ele)
     return OK;
 }
 
-Status DeleteElement(SqList &L, int idx, ElementType &ele)
+Status DeleteElement(SqList &L, int idx, ElemType &ele)
 {
     if (idx < 0 || idx >= L.length)
     {

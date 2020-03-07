@@ -2,18 +2,18 @@
 
 #include "../../common/status.h"
 
-typedef int ElementType;
+typedef int ElemType;
 
 typedef struct LkList {
-    ElementType data;
+    ElemType data;
     LkList* next;
 } LkList;
 
 Status InitLkList(LkList &);
 
-Status InsertElement(LkList &, int, ElementType);
+Status InsertElement(LkList &, int, ElemType);
 
-Status DeleteElement(LkList &, int, ElementType &);
+Status DeleteElement(LkList &, int, ElemType &);
 
 Status DestroyList(LkList &);
 

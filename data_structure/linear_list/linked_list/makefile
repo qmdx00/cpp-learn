@@ -1,16 +1,17 @@
 # linked list makefile
 
 CC = g++
-OUT = test
-DEPS = status.h linked_list.h
+EXEC = test
+DEPS = *.h
 SRCS = test.cpp linked_list.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
-$(OUT): $(OBJS)
-	$(CC) -o $(OUT) $(OBJS)
+$(EXEC): $(OBJS)
+	$(CC) -o $(EXEC) $(OBJS)
 
 %.o: %.cpp $(DEPS)
 	$(CC) -o $@ -c $<
 
 clean:
-	rm $(OBJS) $(OUT)
+	rm $(OBJS) $(EXEC)
+
