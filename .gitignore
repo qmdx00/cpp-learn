@@ -4,6 +4,8 @@
 
 # 不忽略的文件
 !.gitignore
+!*.md
+
 !makefile
 !*.cpp
 !*.h

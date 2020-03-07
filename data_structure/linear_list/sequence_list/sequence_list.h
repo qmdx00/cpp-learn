@@ -1,6 +1,6 @@
 #ifndef SEQUENCE_LIST_H
 
-#include "status.h"
+#include "../../common/status.h"
 
 #define MAX_SIZE 100
 typedef int ElementType;

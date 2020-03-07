@@ -1,6 +1,6 @@
 #ifndef _LINKED_LIST_H
 
-#include "../sequence_list/status.h"
+#include "../../common/status.h"
 
 typedef int ElementType;
 
