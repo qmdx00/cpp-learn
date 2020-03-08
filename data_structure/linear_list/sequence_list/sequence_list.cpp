@@ -44,13 +44,14 @@ Status ListDelete_Sq(SqList &L, int idx, ElemType &ele)
     if (idx < 1 || idx > L.length)
         return ERROR;
 
+    // 指向第 idx 个元素的指针
     ElemType *p = &(L.elem[idx - 1]);
     ele = *p;
     // 循环左移
     ElemType *q = L.elem + L.length - 1;
     for (++p; p <= q; ++p)
     {
-        *(p - 1) = *q;
+        *(p - 1) = *p;
     }
     --L.length;
     return OK;

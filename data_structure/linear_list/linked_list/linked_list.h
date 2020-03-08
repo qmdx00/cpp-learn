@@ -1,22 +1,32 @@
-#ifndef _LINKED_LIST_H
+#ifndef LINKED_LIST_H
 
 #include "../../common/status.h"
 
 typedef int ElemType;
 
-typedef struct LkList {
+typedef struct LNode {
     ElemType data;
-    LkList* next;
-} LkList;
+    struct LNode* next;
+} LNode, *LinkList;
 
-Status InitLkList(LkList &);
+// 带头节点的单链表，且头节点的数据域存储链表的长度
 
-Status InsertElement(LkList &, int, ElemType);
+// 创建带头节点的单链表，并逆序输入 n 个元素的值
+void CreateList_L(LinkList &, int);
 
-Status DeleteElement(LkList &, int, ElemType &);
+// 在链表的第 i 个位置插入元素e
+Status ListInsert_L(LinkList &, int, ElemType);
 
-Status DestroyList(LkList &);
+// 删除第 i 个位置的元素并由元素e返回其值
+Status ListDelete_L(LinkList &, int, ElemType &);
 
-void TraversalList(LkList);
+// 获取第 i 个元素
+Status GetElem_L(LinkList, int, ElemType &);
+
+// 遍历链表
+void ListTraverse_L(LinkList);
+
+// 清空链表
+Status ClearList_L(LinkList &);
 
 #endif
