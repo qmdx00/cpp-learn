@@ -3,54 +3,60 @@
 
 using namespace std;
 
-Status InitSqList(SqList &L)
+Status InitList_Sq(SqList &L)
 {
-    L.data = new ElemType[MAX_SIZE];
+    L.elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
+    if (!L.elem)
+        exit(OVERFLOW);
     L.length = 0;
+    L.listsize = LIST_INIT_SIZE;
     return OK;
 }
 
-Status InsertElement(SqList &L, int idx, ElemType ele)
+Status ListInsert_Sq(SqList &L, int idx, ElemType ele)
 {
-    if (L.length >= MAX_SIZE)
+    if (idx < 1 || idx > L.length + 1)
+        return ERROR;
+
+    if (L.length >= L.listsize)
     {
-        cerr << "sequence list is full" << endl;
-        return OVERFLOW;
+        // 扩容
+        ElemType *newbase = (ElemType *)realloc(L.elem, (L.listsize + LIST_INCREMENT) * sizeof(ElemType));
+        if (!newbase)
+            exit(OVERFLOW);
+        L.elem = newbase;
+        L.listsize += LIST_INCREMENT;
     }
 
-    if (idx < 0 || idx > L.length)
+    // 循环右移
+    ElemType *q = &(L.elem[idx - 1]);
+    for (ElemType *p = &(L.elem[L.length - 1]); p >= q; --p)
     {
-        cerr << "invalid position to insert" << idx << endl;
-        return ERROR;
+        *(p + 1) = *p;
     }
-    for (int i = L.length; i >= idx; i--)
-    {
-        L.data[i] = L.data[i - 1];
-    }
-    L.data[idx] = ele;
-    L.length++;
+    *q = ele;
+    ++L.length;
     return OK;
 }
 
-Status DeleteElement(SqList &L, int idx, ElemType &ele)
+Status ListDelete_Sq(SqList &L, int idx, ElemType &ele)
 {
-    if (idx < 0 || idx >= L.length)
-    {
-        cerr << "invalid position to delete :" << idx << endl;
-        ele = -1;
+    if (idx < 1 || idx > L.length)
         return ERROR;
-    }
 
-    ele = L.data[idx];
-    for (int i = idx; i < L.length - 1; i++)
+    ElemType *p = &(L.elem[idx - 1]);
+    ele = *p;
+    // 循环左移
+    ElemType *q = L.elem + L.length - 1;
+    for (++p; p <= q; ++p)
     {
-        L.data[i] = L.data[i + 1];
+        *(p - 1) = *q;
     }
-    L.length--;
+    --L.length;
     return OK;
 }
 
-void TraversalList(SqList L)
+void ListTraverse_Sq(SqList L)
 {
     if (L.length == 0)
     {
@@ -60,14 +66,15 @@ void TraversalList(SqList L)
     cout << "[ ";
     for (int i = 0; i < L.length - 1; i++)
     {
-        cout << L.data[i] << ", ";
+        cout << L.elem[i] << ", ";
     }
-    cout << L.data[L.length - 1] << " ]" << endl;
+    cout << L.elem[L.length - 1] << " ]" << endl;
 }
 
-Status DestroyList(SqList &L)
+Status DestroyList_Sq(SqList &L)
 {
-    delete[] L.data;
+    delete[] L.elem;
     L.length = 0;
+    L.listsize = 0;
     return OK;
 }

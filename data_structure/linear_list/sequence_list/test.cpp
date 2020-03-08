@@ -6,32 +6,42 @@ int main(int argc, char const *argv[])
 {
     SqList list;
 
-    InitSqList(list);
-    cout << "initialize sequence list" << endl;
-    TraversalList(list);
+    InitList_Sq(list);
+    cout << "length: " << list.length << ", size: " << list.listsize << endl;
+    ListTraverse_Sq(list);
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 1; i < 5; i++)
     {
-        InsertElement(list, i, i * i);
+        ListInsert_Sq(list, i, i * i);
     }
     cout << "add some elements" << endl;
-    TraversalList(list);
+    cout << "length: " << list.length << ", size: " << list.listsize << endl;
+    ListTraverse_Sq(list);
 
     int del;
-    DeleteElement(list, 3, del);
+    ListDelete_Sq(list, 3, del);
     cout << "delete element: " << del << endl;
-    TraversalList(list);
+    cout << "length: " << list.length << ", size: " << list.listsize << endl;
+    ListTraverse_Sq(list);
 
-    InsertElement(list, 2, 7);
+    ListInsert_Sq(list, 2, 7);
     cout << "insert element 7 at position 2" << endl;
-    TraversalList(list);
+    cout << "length: " << list.length << ", size: " << list.listsize << endl;
+    ListTraverse_Sq(list);
 
-    InsertElement(list, list.length, 10);
+    ListInsert_Sq(list, list.length + 1, 10);
     cout << "insert element 10 at tail" << endl;
-    TraversalList(list);
+    cout << "length: " << list.length << ", size: " << list.listsize << endl;
+    ListTraverse_Sq(list);
 
+    ListInsert_Sq(list, 4, 2);
+    cout << "insert element 2 at position 4" << endl;
+    cout << "length: " << list.length << ", size: " << list.listsize << endl;
+    ListTraverse_Sq(list);
+
+    DestroyList_Sq(list);
     cout << "destory sequence list" << endl;
-    DestroyList(list);
+    cout << "length: " << list.length << ", size: " << list.listsize << endl;
 
     return 0;
 }
