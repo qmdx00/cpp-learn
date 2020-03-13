@@ -23,10 +23,10 @@ int LocateElem_SL(SLinkList S, ElemType ele)
     return i;
 }
 
-int ListLength_SL(SLinkList S)
+int ListLength_SL(SLinkList S, int k)
 {
     int len = 0;
-    int i = S[0].cur;
+    int i = k;
     while (i)
     {
         i = S[i].cur;
@@ -35,16 +35,26 @@ int ListLength_SL(SLinkList S)
     return len;
 }
 
-Status ListInsert_SL(SLinkList &space, int idx, ElemType ele)
+Status ListInsert_SL(SLinkList &space, int &k, int idx, ElemType ele)
 {
-    if (idx < 1 || idx > ListLength_SL(space) + 1) return ERROR;
+    if (idx < 1 || idx > ListLength_SL(space, k) + 1) return ERROR;
+
+    if (idx == 1)
+    {
+        int p = k;
+        int new_idx = Malloc_SL(space);
+        space[new_idx].cur = p;
+        space[new_idx].data = ele;
+        k = new_idx;
+        return OK;
+    }
     
-    int p = space[0].cur;
+    int p = k;
     int new_idx = Malloc_SL(space);
     if (new_idx != 0)
     {
         space[new_idx].data = ele;
-        for(int i = 1; i < idx; i++)
+        for(int i = 1; i < idx - 1; i++)
         {
             p = space[p].cur;
         }
@@ -56,20 +66,30 @@ Status ListInsert_SL(SLinkList &space, int idx, ElemType ele)
     return ERROR;
 }
 
-Status ListDelete_SL(SLinkList &space, int idx, ElemType &ele)
+Status ListDelete_SL(SLinkList &space, int &k, int idx, ElemType &ele)
 {
-    if (idx < 1 || idx > ListLength_SL(space)) return ERROR;
-    
-    int p = space[0].cur;
+    if (idx < 1 || idx > ListLength_SL(space, k)) return ERROR;
 
-    for(int i = 1; i < idx; i++)
+    if (idx == 1)
+    {
+        int p = k;
+        k = space[p].cur;
+        ele = space[p].data;
+        Free_SL(space, p);
+        return OK;
+    }
+
+    int p = k;
+    for(int i = 1; i < idx - 1; i++)
     {
         p = space[p].cur;
     }
+
     int q = space[p].cur;
     space[p].cur = space[q].cur;
-    ele = space[p].data;
+    ele = space[q].data;
     Free_SL(space, q);
+
     return OK;
     
 }
@@ -91,9 +111,9 @@ void Free_SL(SLinkList &space, int k)
     space[0].cur = k;
 }
 
-void ListTraverse_SL(SLinkList S)
+void ListTraverse_SL(SLinkList S, int k)
 {
-    int p = S[0].cur;
+    int p = k;
     if (p == 0)
     {
         cout << "[ ]" << endl;
@@ -104,9 +124,9 @@ void ListTraverse_SL(SLinkList S)
     while (p != 0)
     {
         if (S[p].cur == 0)
-            cout << S[p].data << " - " << S[p].cur << " - " << LocateElem_SL(S, S[p].data) << " ";
+            cout << S[p].data << " ";
         else
-            cout << S[p].data << " - " << S[p].cur << " - " << LocateElem_SL(S, S[p].data) << ", ";
+            cout << S[p].data << ", ";
         p = S[p].cur;
     }
     cout << "]" << endl;
