@@ -5,9 +5,10 @@
 
 typedef int ElemType;
 
-typedef struct LNode {
+typedef struct LNode
+{
     ElemType data;
-    struct LNode* next;
+    struct LNode *next;
 } LNode, *LinkList;
 
 // 带头节点的单链表，且头节点的数据域存储链表的长度
