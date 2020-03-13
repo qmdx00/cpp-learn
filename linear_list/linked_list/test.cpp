@@ -6,6 +6,7 @@ int main(int argc, char const *argv[])
 {
     // 带头节点的单链表，且头节点的数据域存储链表的长度
     LinkList L;
+    cout << "enter 3 elements by reverse order: " << endl;
     CreateList_L(L, 3);
     ListTraverse_L(L);
     cout << "length: " << L->data << endl;
@@ -21,7 +22,7 @@ int main(int argc, char const *argv[])
 
     ElemType del;
     ListDelete_L(L, 1, del);
-    cout << "delete element at position 1 is: " << del << endl;
+    cout << "delete " << del << " at position 1" << endl;
     cout << "length: " << L->data << endl;
     ListTraverse_L(L);
 

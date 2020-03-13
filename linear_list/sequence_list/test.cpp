@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
     InitList_Sq(list);
     cout << "length: " << list.length << ", size: " << list.listsize << endl;
     ListTraverse_Sq(list);
-
+    
     for (int i = 1; i < 5; i++)
     {
         ListInsert_Sq(list, i, i * i);
