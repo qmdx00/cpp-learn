@@ -14,7 +14,7 @@ void CreateList_DuL(DuLinkList &L, int n)
     {
         DuLinkList p = (DuLinkList)malloc(sizeof(DuLNode));
         cin >> p->data;
-
+        // 向头节点后插入新的节点
         p->next = L->next;
         p->prior = L;
         L->next->prior = p;
