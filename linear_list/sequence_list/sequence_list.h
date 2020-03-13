@@ -1,4 +1,5 @@
 #ifndef SEQUENCE_LIST_H
+#define SEQUENCE_LIST_H
 
 #include "../../common/status.h"
 

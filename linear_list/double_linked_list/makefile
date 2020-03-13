@@ -1,10 +1,10 @@
-# static linked list makefile
+# double linked list makefile
 
-CC = g++
+CC = g++ -g
 CFLAGS = -Wall -g
 EXEC = test
 DEPS = *.h
-SRCS = test.cpp static_linked_list.cpp
+SRCS = test.cpp double_linked_list.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 $(EXEC): $(OBJS)
