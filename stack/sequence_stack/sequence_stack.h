@@ -3,8 +3,8 @@
 
 #include "../../common/status.h"
 
-#define STACK_INIT_SIZE 100
-#define STACK_INCREMENT 10
+#define STACK_INIT_SIZE 5
+#define STACK_INCREMENT 3
 
 typedef int SElemType;
 
@@ -31,6 +31,6 @@ Status Push(SqStack &, SElemType);
 
 Status Pop(SqStack &, SElemType &);
 
-Status StackTraverse(SqStack);
+void StackTraverse(SqStack);
 
 #endif
