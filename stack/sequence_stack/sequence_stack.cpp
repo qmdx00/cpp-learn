@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Status InitStack(SqStack &S)
+Status InitStack_Sq(SqStack &S)
 {
     S.base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType));
     if (!S.base)
@@ -13,20 +13,20 @@ Status InitStack(SqStack &S)
     return OK;
 }
 
-Status DestoryStack(SqStack &S)
+Status DestroyStack_Sq(SqStack &S)
 {
     free(S.base);
     S.stacksize = 0;
     return OK;
 }
 
-Status ClearStack(SqStack &S)
+Status ClearStack_Sq(SqStack &S)
 {
     S.top = S.base;
     return OK;
 }
 
-Status StackEmpty(SqStack S)
+Status StackEmpty_Sq(SqStack S)
 {
     if (S.top == S.base)
         return TRUE;
@@ -34,20 +34,20 @@ Status StackEmpty(SqStack S)
         return FALSE;
 }
 
-int StackLength(SqStack S)
+int StackLength_Sq(SqStack S)
 {
     int length = 0;
     if (S.top == S.base)
         return 0;
     while (S.top != S.base)
     {
-        length++;
-        S.top--;
+        ++length;
+        --S.top;
     }
     return length;
 }
 
-Status GetTop(SqStack S, SElemType &ele)
+Status GetTop_Sq(SqStack S, SElemType &ele)
 {
     if (S.top == S.base)
         return ERROR;
@@ -55,7 +55,7 @@ Status GetTop(SqStack S, SElemType &ele)
     return OK;
 }
 
-Status Push(SqStack &S, SElemType ele)
+Status Push_Sq(SqStack &S, SElemType ele)
 {
     if (S.top - S.base >= S.stacksize)
     {
@@ -69,7 +69,7 @@ Status Push(SqStack &S, SElemType ele)
     return OK;
 }
 
-Status Pop(SqStack &S, SElemType &ele)
+Status Pop_Sq(SqStack &S, SElemType &ele)
 {
     if (S.top == S.base)
         return ERROR;
@@ -77,12 +77,12 @@ Status Pop(SqStack &S, SElemType &ele)
     return OK;
 }
 
-void StackTraverse(SqStack S)
+void StackTraverse_Sq(SqStack S)
 {
     if (S.base == S.top)
-        cout << "top-> ]" << endl;
+        cout << "top->[ ]" << endl;
     int i = 1;
-    cout << "top-> ";
+    cout << "top->[ ";
     while (i < S.top - S.base)
     {
         cout << *(S.top - i) << ", ";

@@ -15,22 +15,22 @@ typedef struct
     int stacksize;
 } SqStack;
 
-Status InitStack(SqStack &);
+Status InitStack_Sq(SqStack &);
 
-Status DestoryStack(SqStack &);
+Status DestroyStack_Sq(SqStack &);
 
-Status ClearStack(SqStack &);
+Status ClearStack_Sq(SqStack &);
 
-Status StackEmpty(SqStack);
+Status StackEmpty_Sq(SqStack);
 
-int StackLength(SqStack);
+int StackLength_Sq(SqStack);
 
-Status GetTop(SqStack, SElemType &);
+Status GetTop_Sq(SqStack, SElemType &);
 
-Status Push(SqStack &, SElemType);
+Status Push_Sq(SqStack &, SElemType);
 
-Status Pop(SqStack &, SElemType &);
+Status Pop_Sq(SqStack &, SElemType &);
 
-void StackTraverse(SqStack);
+void StackTraverse_Sq(SqStack);
 
 #endif
