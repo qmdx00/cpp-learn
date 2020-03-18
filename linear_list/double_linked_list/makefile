@@ -1,18 +1,20 @@
 # double linked list makefile
 
-CC = g++ -g
+CC = g++
 CFLAGS = -Wall -g
 EXEC = test
-DEPS = *.h
-SRCS = test.cpp double_linked_list.cpp
+SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:%.cpp=%.o)
 
 $(EXEC): $(OBJS)
 	$(CC) ${CFLAGS} -o $(EXEC) $(OBJS)
 
-%.o: %.cpp $(DEPS)
+%.o: %.cpp
 	$(CC) ${CFLAGS} -o $@ -c $<
 
 clean:
 	rm $(OBJS) $(EXEC)
 
+all:
+	@echo $(SRCS)
+	@echo $(OBJS)
