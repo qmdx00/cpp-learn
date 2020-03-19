@@ -2,7 +2,6 @@
 #include <iostream>
 
 using namespace std;
-
 void CreateList_DuL(DuLinkList &L, int n)
 {
     L = (DuLinkList)malloc(sizeof(DuLNode));
@@ -97,17 +96,12 @@ Status ClearList_DuL(DuLinkList &L)
     return OK;
 }
 
-void ListTraverse_DuL(DuLinkList L)
+void ListTraverse_DuL(DuLinkList L, Status (*Visit)(ElemType))
 {
     DuLinkList p = L->next;
-    cout << "[ ";
     while (p != L)
     {
-        if (p->next == L)
-            cout << p->data << " ";
-        else
-            cout << p->data << ", ";
+        Visit(p->data);
         p = p->next;
     }
-    cout << "]" << endl;
 }

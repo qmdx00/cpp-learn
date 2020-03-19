@@ -76,23 +76,15 @@ Status DeQueue_L(LinkQueue &Q, QElemType &ele)
     return OK;
 }
 
-void TraverseQueue_L(LinkQueue Q)
+void TraverseQueue_L(LinkQueue Q, Status (*Visit)(QElemType))
 {
-    if (Q.front == Q.rear)
+    if (Q.front != Q.rear)
     {
-        cout << "front->[ ]" << endl;
-        return;
+        QueuePtr p = Q.front->next;
+        while (p)
+        {
+            Visit(p->data);
+            p = p->next;
+        }
     }
-
-    QueuePtr p = Q.front->next;
-    cout << "front->[ ";
-    while (p)
-    {
-        if (p->next == NULL)
-            cout << p->data << " ";
-        else
-            cout << p->data << ", ";
-        p = p->next;
-    }
-    cout << "]" << endl;
 }

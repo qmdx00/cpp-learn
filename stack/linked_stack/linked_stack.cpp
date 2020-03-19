@@ -73,19 +73,14 @@ int StackLength_L(LStack L)
     return L->data;
 }
 
-void StackTraverse_L(LStack L)
+void StackTraverse_L(LStack L, Status (*Visit)(SElemType))
 {
     LStack p = L->next;
-    cout << "top->[ ";
     while (p)
     {
-        if (p->next == NULL)
-            cout << p->data << " ";
-        else
-            cout << p->data << ", ";
+        Visit(p->data);
         p = p->next;
     }
-    cout << "]" << endl;
 }
 
 Status DestroyStack_L(LStack &L)

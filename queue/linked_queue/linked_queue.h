@@ -31,6 +31,6 @@ Status EnQueue_L(LinkQueue &, QElemType);
 // 从队头删除
 Status DeQueue_L(LinkQueue &, QElemType &);
 
-void TraverseQueue_L(LinkQueue);
+void TraverseQueue_L(LinkQueue, Status (*Visit)(QElemType));
 
 #endif

@@ -27,7 +27,7 @@ Status ListInsert_Sq(SqList &, int, ElemType);
 Status ListDelete_Sq(SqList &, int, ElemType &);
 
 // 遍历顺序表
-void ListTraverse_Sq(SqList);
+void ListTraverse_Sq(SqList, Status(*Visit)(ElemType));
 
 // 销毁顺序表，释放内存
 Status DestroyList_Sq(SqList &);

@@ -112,23 +112,12 @@ void Free_SL(SLinkList &space, int k)
     space[0].cur = k;
 }
 
-void ListTraverse_SL(SLinkList S, int k)
+void ListTraverse_SL(SLinkList S, int k, Status(*Visit)(ElemType))
 {
     int p = k;
-    if (p == 0)
-    {
-        cout << "[ ]" << endl;
-        return;
-    }
-
-    cout << "[ ";
     while (p != 0)
     {
-        if (S[p].cur == 0)
-            cout << S[p].data << " ";
-        else
-            cout << S[p].data << ", ";
+        Visit(S[p].data);
         p = S[p].cur;
     }
-    cout << "]" << endl;
 }

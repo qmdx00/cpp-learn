@@ -26,7 +26,7 @@ Status ListDelete_L(LinkList &, int, ElemType &);
 Status GetElem_L(LinkList, int, ElemType &);
 
 // 遍历链表
-void ListTraverse_L(LinkList);
+void ListTraverse_L(LinkList, Status (*Visit)(ElemType));
 
 // 清空链表
 Status ClearList_L(LinkList &);

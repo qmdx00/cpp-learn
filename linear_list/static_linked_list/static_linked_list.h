@@ -35,6 +35,6 @@ int Malloc_SL(SLinkList &);
 void Free_SL(SLinkList &, int);
 
 // 遍历静态链表表，头节点下标为k
-void ListTraverse_SL(SLinkList, int);
+void ListTraverse_SL(SLinkList, int, Status(*Visit)(ElemType));
 
 #endif

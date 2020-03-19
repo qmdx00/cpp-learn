@@ -26,6 +26,6 @@ Status ListDelete_DuL(DuLinkList &, int, ElemType &);
 // 清空链表
 Status ClearList_DuL(DuLinkList &);
 
-void ListTraverse_DuL(DuLinkList);
+void ListTraverse_DuL(DuLinkList, Status (*Visit)(ElemType));
 
 #endif

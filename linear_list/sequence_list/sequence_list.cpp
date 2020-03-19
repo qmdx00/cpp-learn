@@ -57,19 +57,12 @@ Status ListDelete_Sq(SqList &L, int idx, ElemType &ele)
     return OK;
 }
 
-void ListTraverse_Sq(SqList L)
+void ListTraverse_Sq(SqList L, Status(*Visit)(ElemType))
 {
-    if (L.length == 0)
+    for (int i = 0; i < L.length; i++)
     {
-        cout << "[ ]" << endl;
-        return;
+        Visit(L.elem[i]);
     }
-    cout << "[ ";
-    for (int i = 0; i < L.length - 1; i++)
-    {
-        cout << L.elem[i] << ", ";
-    }
-    cout << L.elem[L.length - 1] << " ]" << endl;
 }
 
 Status DestroyList_Sq(SqList &L)

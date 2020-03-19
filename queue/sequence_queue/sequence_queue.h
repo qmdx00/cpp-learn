@@ -29,6 +29,6 @@ Status QueueEmpty_Sq(SqQueue);
 
 Status GetHead_Sq(SqQueue, QElemType &);
 
-void TraverseQueue_Sq(SqQueue);
+void TraverseQueue_Sq(SqQueue, Status (*Visit)(QElemType));
 
 #endif

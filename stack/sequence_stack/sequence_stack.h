@@ -31,6 +31,6 @@ Status Push_Sq(SqStack &, SElemType);
 
 Status Pop_Sq(SqStack &, SElemType &);
 
-void StackTraverse_Sq(SqStack);
+void StackTraverse_Sq(SqStack, Status (*Visit)(SElemType));
 
 #endif

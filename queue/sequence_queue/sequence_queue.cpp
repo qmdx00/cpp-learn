@@ -55,19 +55,11 @@ Status GetHead_Sq(SqQueue Q, QElemType &ele)
     return OK;
 }
 
-void TraverseQueue_Sq(SqQueue Q)
+void TraverseQueue_Sq(SqQueue Q, Status (*Visit)(QElemType))
 {
-    if (Q.front == Q.rear)
+    while (Q.front != Q.rear)
     {
-        cout << "front->[ ]" << endl;
-        return;
-    }
-
-    cout << "front->[ ";
-    while (((Q.front + 1) % MAX_QUEUE_SIZE) != Q.rear)
-    {
-        cout << Q.base[Q.front] << ", ";
+        Visit(Q.base[Q.front]);
         Q.front = (Q.front + 1) % MAX_QUEUE_SIZE;
     }
-    cout << Q.base[Q.front] << " ]" << endl;
 }

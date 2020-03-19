@@ -3,6 +3,12 @@
 
 using namespace std;
 
+Status visit(SElemType ele)
+{
+    cout << ele << " ";
+    return OK;
+}
+
 int main(int argc, char const *argv[])
 {
     SqStack S;
@@ -15,7 +21,8 @@ int main(int argc, char const *argv[])
     }
     cout << "stack size: " << S.stacksize << endl;
     cout << "stack length: " << StackLength_Sq(S) << endl;
-    StackTraverse_Sq(S);
+    StackTraverse_Sq(S, visit);
+    cout << endl;
 
     SElemType ele;
     GetTop_Sq(S, ele);
@@ -24,7 +31,8 @@ int main(int argc, char const *argv[])
     Pop_Sq(S, ele);
     cout << "pop element: " << ele << endl;
     cout << "stack length: " << StackLength_Sq(S) << endl;
-    StackTraverse_Sq(S);
+    StackTraverse_Sq(S, visit);
+    cout << endl;
 
     ClearStack_Sq(S);
     cout << "stack size: " << S.stacksize << endl;

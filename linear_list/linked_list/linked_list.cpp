@@ -88,19 +88,14 @@ Status GetElem_L(LinkList L, int idx, ElemType &ele)
     return OK;
 }
 
-void ListTraverse_L(LinkList L)
+void ListTraverse_L(LinkList L, Status (*Visit)(ElemType))
 {
     LinkList p = L->next;
-    cout << "[ ";
     while (p)
     {
-        if (p->next == NULL)
-            cout << p->data << " ";
-        else
-            cout << p->data << ", ";
+        Visit(p->data);
         p = p->next;
     }
-    cout << "]" << endl;
 }
 
 Status ClearList_L(LinkList &L)

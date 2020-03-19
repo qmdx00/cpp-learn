@@ -11,7 +11,7 @@ typedef struct SNode
     SNode *next;
 } SNode, *LStack;
 
-Status InitStack_L(LStack &L, int);
+Status InitStack_L(LStack &, int);
 
 Status GetTop_L(LStack, SElemType &);
 
@@ -23,7 +23,7 @@ Status StackEmpty_L(LStack);
 
 int StackLength_L(LStack);
 
-void StackTraverse_L(LStack);
+void StackTraverse_L(LStack, Status (*Visit)(SElemType));
 
 Status DestroyStack_L(LStack &);
 
