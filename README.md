@@ -4,25 +4,26 @@
 ### 完成进度
 
 #### 线性表
-- [x] 顺序表
-- [x] 链表
-- [x] 静态链表
-- [x] 双向链表
+- [x] [顺序表](linear_list/sequence_list)
+- [x] [链表](linear_list/linked_list)
+- [x] [静态链表](linear_list/static_linked_list)
+- [x] [双向链表](linear_list/double_linked_list)
 
 #### 栈
-- [x] 顺序栈
-- [x] 链式栈
+- [x] [顺序栈](stack/sequence_stack)
+- [x] [链式栈](stack/linked_stack)
 
 #### 队列
-- [x] 链式队列
-- [x] 顺序循环队列
+- [x] [链式队列](queue/linked_queue)
+- [x] [顺序循环队列](queue/sequence_queue)
 
 #### 串
 
 #### 广义表
 
 #### 树
-- [ ] 二叉树
+- [ ] [二叉树](tree/binary_tree)
+- [ ] [赫夫曼树](tree/huffman_tree)
 
 #### 图
 
