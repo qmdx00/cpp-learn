@@ -80,7 +80,11 @@ Status Pop_Sq(SqStack &S, SElemType &ele)
 void StackTraverse_Sq(SqStack S)
 {
     if (S.base == S.top)
+    {
         cout << "top->[ ]" << endl;
+        return;
+    }
+
     int i = 1;
     cout << "top->[ ";
     while (i < S.top - S.base)

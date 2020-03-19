@@ -37,7 +37,8 @@ int ListLength_SL(SLinkList S, int k)
 
 Status ListInsert_SL(SLinkList &space, int &k, int idx, ElemType ele)
 {
-    if (idx < 1 || idx > ListLength_SL(space, k) + 1) return ERROR;
+    if (idx < 1 || idx > ListLength_SL(space, k) + 1)
+        return ERROR;
 
     if (idx == 1)
     {
@@ -48,13 +49,13 @@ Status ListInsert_SL(SLinkList &space, int &k, int idx, ElemType ele)
         k = new_idx;
         return OK;
     }
-    
+
     int p = k;
     int new_idx = Malloc_SL(space);
     if (new_idx != 0)
     {
         space[new_idx].data = ele;
-        for(int i = 1; i < idx - 1; i++)
+        for (int i = 1; i < idx - 1; i++)
         {
             p = space[p].cur;
         }
@@ -62,13 +63,14 @@ Status ListInsert_SL(SLinkList &space, int &k, int idx, ElemType ele)
         space[p].cur = new_idx;
         return OK;
     }
-    
+
     return ERROR;
 }
 
 Status ListDelete_SL(SLinkList &space, int &k, int idx, ElemType &ele)
 {
-    if (idx < 1 || idx > ListLength_SL(space, k)) return ERROR;
+    if (idx < 1 || idx > ListLength_SL(space, k))
+        return ERROR;
 
     if (idx == 1)
     {
@@ -80,7 +82,7 @@ Status ListDelete_SL(SLinkList &space, int &k, int idx, ElemType &ele)
     }
 
     int p = k;
-    for(int i = 1; i < idx - 1; i++)
+    for (int i = 1; i < idx - 1; i++)
     {
         p = space[p].cur;
     }
@@ -91,7 +93,6 @@ Status ListDelete_SL(SLinkList &space, int &k, int idx, ElemType &ele)
     Free_SL(space, q);
 
     return OK;
-    
 }
 
 int Malloc_SL(SLinkList &space)
