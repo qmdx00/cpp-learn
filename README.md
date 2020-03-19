@@ -1,6 +1,5 @@
 ### 数据结构实现
->《数据结构（C语言版）》严蔚敏 & 吴伟民
-> c++ 实现，利用了c++的少量特性，`&` 引用和 `std::cout`，`std::cin` 来输入和输出
+>《数据结构（C语言版）》严蔚敏 & 吴伟民，c++ 实现，利用了c++的少量特性，如`&` 引用， `std::cout`，`std::cin` 输入输出。
 
 ### 完成进度
 
@@ -32,7 +31,9 @@
 #### 内部排序
 
 ### 目录结构
-> 以栈(Stack)的实现为例
+
+> 以栈(Stack)的实现为例：
+
 ```bash
 .
 ├── examples        // 栈的应用
@@ -51,6 +52,7 @@
 
 3 directories, 10 files
 ```
+
 ### 使用方式
 - clone 项目，需要`g++`编译器
 - 进入每个单独的实现目录执行`make`命令即可生成二进制的可执行文件
@@ -58,12 +60,17 @@
 - `make all`显示执行的依赖文件
 - `make clean`清除生成的链接文件和可执行文件
 
+#### makefile如下：
 ```makefile
+# $@ 目标文件集合
+# $< 第一个依赖文件
+# $^ 所有的依赖文件
+
 CC = g++
-CFLAGS = -Wall -g
-EXEC = test
-SRCS = $(wildcard *.cpp)
-OBJS = $(SRCS:%.cpp=%.o)
+CFLAGS = -Wall -g           # 编译参数
+EXEC = test                 # 可执行文件
+SRCS = $(wildcard *.cpp)    # 源文件集合
+OBJS = $(SRCS:%.cpp=%.o)    # 目标文件集合
 
 $(EXEC): $(OBJS)
 	$(CC) ${CFLAGS} -o $(EXEC) $(OBJS)
