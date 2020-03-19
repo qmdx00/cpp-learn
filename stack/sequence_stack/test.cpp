@@ -37,8 +37,10 @@ int main(int argc, char const *argv[])
     ClearStack_Sq(S);
     cout << "stack size: " << S.stacksize << endl;
     cout << "stack length: " << StackLength_Sq(S) << endl;
-    if (StackEmpty_Sq(S)) cout << "stack empty" << endl;
-    else cout << "stack not empty" << endl;
+    if (StackEmpty_Sq(S))
+        cout << "stack empty" << endl;
+    else
+        cout << "stack not empty" << endl;
 
     DestroyStack_Sq(S);
 

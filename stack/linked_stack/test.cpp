@@ -35,7 +35,7 @@ int main(int argc, char const *argv[])
     cout << endl;
 
     cout << "pop all elements of stack: " << endl;
-    while(!StackEmpty_L(L))
+    while (!StackEmpty_L(L))
     {
         Pop_L(L, ele);
         cout << ele << " ";

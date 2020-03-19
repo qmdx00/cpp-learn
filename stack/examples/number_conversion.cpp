@@ -17,7 +17,7 @@ void conversion()
         Push_L(S, N % 8);
         N = N / 8;
     }
-    
+
     cout << "result: " << endl;
     while (!StackEmpty_L(S))
     {

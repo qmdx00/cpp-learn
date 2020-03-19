@@ -46,7 +46,7 @@ Status ListInsert_DuL(DuLinkList &L, int idx, ElemType ele)
 
     if (!(p = GetElemP_DuL(L, idx)))
         return ERROR;
-        
+
     if (!(s = (DuLinkList)malloc(sizeof(DuLNode))))
         return ERROR;
 
@@ -69,7 +69,7 @@ Status ListDelete_DuL(DuLinkList &L, int idx, ElemType &ele)
 
     if (!(p = GetElemP_DuL(L, idx)))
         return ERROR;
-    
+
     ele = p->data;
 
     p->prior->next = p->next;
@@ -92,7 +92,7 @@ Status ClearList_DuL(DuLinkList &L)
         --L->data;
     }
     free(L);
-    
+
     return OK;
 }
 

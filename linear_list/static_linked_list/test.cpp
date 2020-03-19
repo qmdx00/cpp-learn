@@ -55,6 +55,6 @@ int main(int argc, char const *argv[])
     cout << "list length: " << ListLength_SL(SP, S.cur) << endl;
     ListTraverse_SL(SP, S.cur, visit);
     cout << endl;
-    
+
     return 0;
 }

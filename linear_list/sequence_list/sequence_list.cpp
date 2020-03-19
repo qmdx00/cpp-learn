@@ -57,7 +57,7 @@ Status ListDelete_Sq(SqList &L, int idx, ElemType &ele)
     return OK;
 }
 
-void ListTraverse_Sq(SqList L, Status(*Visit)(ElemType))
+void ListTraverse_Sq(SqList L, Status (*Visit)(ElemType))
 {
     for (int i = 0; i < L.length; i++)
     {

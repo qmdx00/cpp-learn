@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
     cout << "length: " << list.length << ", size: " << list.listsize << endl;
     ListTraverse_Sq(list, visit);
     cout << endl;
-    
+
     for (int i = 1; i < 5; i++)
     {
         ListInsert_Sq(list, i, i * i);

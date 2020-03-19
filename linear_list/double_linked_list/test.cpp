@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
     ListTraverse_DuL(L, visit);
     cout << endl;
     cout << "length of double linked list: " << L->data << endl;
-    
+
     ElemType ele;
     ListDelete_DuL(L, 2, ele);
     cout << "delete " << ele << " at position 2" << endl;

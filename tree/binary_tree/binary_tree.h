@@ -13,12 +13,12 @@ typedef struct BiTNode
 
 Status CreateBiTree(BiTree &);
 // 前序遍历
-Status PreOrderTraverse(BiTree, Status(*Visit)(TElemType));
+Status PreOrderTraverse(BiTree, Status (*Visit)(TElemType));
 // 中序遍历
-Status InOrderTraverse(BiTree, Status(*Visit)(TElemType));
+Status InOrderTraverse(BiTree, Status (*Visit)(TElemType));
 // 后序遍历
-Status PostOrderTraverse(BiTree, Status(*Visit)(TElemType));
+Status PostOrderTraverse(BiTree, Status (*Visit)(TElemType));
 // 层次遍历
-Status LevelOrderTraverse(BiTree, Status(*Visit)(TElemType));
+Status LevelOrderTraverse(BiTree, Status (*Visit)(TElemType));
 
 #endif // BINARY_TREE_H

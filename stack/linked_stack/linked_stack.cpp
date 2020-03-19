@@ -64,8 +64,10 @@ Status Pop_L(LStack &L, SElemType &ele)
 
 Status StackEmpty_L(LStack L)
 {
-    if (L->next == NULL) return TRUE;
-    else return FALSE;
+    if (L->next == NULL)
+        return TRUE;
+    else
+        return FALSE;
 }
 
 int StackLength_L(LStack L)
@@ -95,6 +97,6 @@ Status DestroyStack_L(LStack &L)
         --L->data;
     }
     free(L);
-    
+
     return OK;
 }

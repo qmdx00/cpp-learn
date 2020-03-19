@@ -112,7 +112,7 @@ void Free_SL(SLinkList &space, int k)
     space[0].cur = k;
 }
 
-void ListTraverse_SL(SLinkList S, int k, Status(*Visit)(ElemType))
+void ListTraverse_SL(SLinkList S, int k, Status (*Visit)(ElemType))
 {
     int p = k;
     while (p != 0)

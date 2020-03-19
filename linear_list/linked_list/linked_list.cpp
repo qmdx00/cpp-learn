@@ -34,7 +34,7 @@ Status ListInsert_L(LinkList &L, int idx, ElemType ele)
     // 不存在第 idx-1 个节点或者插入位置 idx 大于表长 +1
     if (!p || i > idx - 1)
         return ERROR;
-    
+
     // 新建节点并插入
     LinkList s = (LinkList)malloc(sizeof(LNode));
     s->data = ele;
@@ -59,7 +59,7 @@ Status ListDelete_L(LinkList &L, int idx, ElemType &ele)
     // 不存在第 idx-1 个节点或者删除位置 idx 大于表长 +1
     if (!(p->next) || i > idx - 1)
         return ERROR;
-    
+
     LinkList q = p->next;
     p->next = q->next;
     ele = q->data;
@@ -79,9 +79,10 @@ Status GetElem_L(LinkList L, int idx, ElemType &ele)
         p = p->next;
         ++i;
     }
-    
+
     // 第 idx 个节点不存在(p 为 null 或者链表长度小于 idx)
-    if (!p || i < idx) return ERROR;
+    if (!p || i < idx)
+        return ERROR;
 
     ele = p->data;
 
@@ -110,6 +111,6 @@ Status ClearList_L(LinkList &L)
         --L->data;
     }
     free(L);
-    
+
     return OK;
 }
