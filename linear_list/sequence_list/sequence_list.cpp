@@ -1,8 +1,6 @@
 #include "sequence_list.h"
 #include <iostream>
 
-using namespace std;
-
 Status InitList_Sq(SqList &L)
 {
     L.elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));

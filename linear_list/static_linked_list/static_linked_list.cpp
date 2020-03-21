@@ -1,7 +1,4 @@
 #include "static_linked_list.h"
-#include <iostream>
-
-using namespace std;
 
 void InitSpace_SL(SLinkList &space)
 {

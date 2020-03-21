@@ -1,7 +1,6 @@
 #include <iostream>
 #include "sequence_queue.h"
 
-using namespace std;
 Status InitQueue_Sq(SqQueue &Q)
 {
     Q.base = (QElemType *)malloc(MAX_QUEUE_SIZE * sizeof(QElemType));

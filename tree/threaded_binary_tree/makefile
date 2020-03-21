@@ -1,4 +1,4 @@
-# huffman tree makefile
+# threaded binary tree makefile
 
 CC = g++
 CFLAGS = -Wall -g

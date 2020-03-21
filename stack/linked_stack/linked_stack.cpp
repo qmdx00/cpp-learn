@@ -2,7 +2,6 @@
 #include "linked_stack.h"
 
 using namespace std;
-
 Status InitStack_L(LStack &L, int n)
 {
     L = (LStack)malloc(sizeof(SNode));

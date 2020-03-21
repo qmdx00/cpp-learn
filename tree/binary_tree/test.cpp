@@ -12,6 +12,7 @@ Status visit(TElemType ele)
 int main(int argc, char const *argv[])
 {
     BiTree T;
+    cout << "enter tree structure by inter order: " << endl;
     // ABD##E##CF###
     CreateBiTree(T);
 

@@ -1,8 +1,6 @@
 #include <iostream>
 #include "sequence_stack.h"
 
-using namespace std;
-
 Status InitStack_Sq(SqStack &S)
 {
     S.base = (SElemType *)malloc(STACK_INIT_SIZE * sizeof(SElemType));

@@ -1,7 +1,6 @@
 #include <iostream>
 #include "linked_queue.h"
 
-using namespace std;
 Status InitQueue_L(LinkQueue &Q)
 {
     Q.front = Q.rear = (QueuePtr)malloc(sizeof(QNode));

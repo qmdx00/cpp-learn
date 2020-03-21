@@ -22,8 +22,8 @@
 #### 广义表
 
 #### 树
-- [ ] [二叉树](tree/binary_tree)
-- [ ] [赫夫曼树](tree/huffman_tree)
+- [x] [二叉树](tree/binary_tree)
+- [x] [线索二叉树](tree/threaded_binary_tree)
 
 #### 图
 
