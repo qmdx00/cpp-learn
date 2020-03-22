@@ -24,8 +24,8 @@ Status InitList(SqList &, int);
 Status TraverseList(SqList, Status (*Visit)(RedType));
 // 直接插入排序
 void InsertSort(SqList &);
-// 希尔排序
-void ShellSort(SqList &, int);
+// 希尔排序 dlta为增量序列，t为序列长度
+void ShellSort(SqList &, int dlta[], int t);
 // 冒泡排序
 void BubbleSort(SqList &);
 // 快速排序
