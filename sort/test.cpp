@@ -41,7 +41,13 @@ int main(int argc, char const *argv[])
     // TraverseList(L, visit);
     // cout << endl;
 
-    // 简单选择排序
+    // // 简单选择排序
+    // SelectSort(L);
+    // cout << "result after sort: " << endl;
+    // TraverseList(L, visit);
+    // cout << endl;
+
+    // 二路归并排序
     SelectSort(L);
     cout << "result after sort: " << endl;
     TraverseList(L, visit);
