@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../common/compare.h"
 #include "sort.h"
 
 using namespace std;
@@ -35,12 +36,12 @@ void InsertSort(SqList &L)
     int len = L.length;
     for (int i = 2; i <= len; i++)
     {
-        if (L.r[i].key < L.r[i - 1].key)
+        if (LT(L.r[i].key, L.r[i - 1].key))
         {
             L.r[0] = L.r[i];     // 取出 L.r[i]
             L.r[i] = L.r[i - 1]; // L.r[i - 1]后移一位
             int j;
-            for (j = i - 2; L.r[0].key < L.r[j].key; --j) // 从 i-1 往前遍历，找到比 L.r[i] 小的元素的位置
+            for (j = i - 2; LT(L.r[0].key, L.r[j].key); --j) // 从 i-1 往前遍历，找到比 L.r[i] 小的元素的位置
                 L.r[j + 1] = L.r[j];
             L.r[j + 1] = L.r[0]; // 将 L.r[i] 插入到该位置
         }
@@ -55,10 +56,10 @@ void ShellInsert(SqList &L, int dk)
     int i, j;
     for (i = dk + 1; i <= L.length; i++)
     {
-        if (L.r[i].key < L.r[i - dk].key)
+        if (LT(L.r[i].key, L.r[i - dk].key))
         {
             L.r[0] = L.r[i]; // 获取无序的元素
-            for (j = i - dk; j > 0 && L.r[0].key < L.r[j].key; j -= dk)
+            for (j = i - dk; j > 0 && LT(L.r[0].key, L.r[j].key); j -= dk)
                 L.r[j + dk] = L.r[j]; // 记录后移，查找插入位置
             L.r[j + dk] = L.r[0];     // 插入该元素
         }
@@ -81,7 +82,7 @@ void BubbleSort(SqList &L)
     {
         for (int j = 1; j < L.length - i + 1; j++)
         {
-            if (L.r[j].key > L.r[j + 1].key)
+            if (GT(L.r[j].key, L.r[j + 1].key))
             {
                 // L.r[0] 为缓存单元
                 L.r[0] = L.r[j];
@@ -133,7 +134,7 @@ int SelectMinKey(SqList &L, int idx)
 {
     int min_loc = idx;
     for (int i = idx; i <= L.length; i++)
-        if (L.r[i].key < L.r[min_loc].key)
+        if (LT(L.r[i].key, L.r[min_loc].key))
             min_loc = i;
     return min_loc;
 }
@@ -172,7 +173,7 @@ void Merge(RedType SR[], RedType TR[], int i, int m, int n)
     for (j = m + 1, k = i; i <= m && j <= n; k++)
     {
         // 将 SR 中记录由小到大并入 TR
-        if (SR[i].key <= SR[j].key) TR[k] = SR[i++];
+        if (LQ(SR[i].key, SR[j].key)) TR[k] = SR[i++];
         else TR[k] = SR[j++];
     }
     // 将左边剩余记录并入 TR
