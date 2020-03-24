@@ -29,15 +29,15 @@
 
 #### 查找
 
-#### [内部排序](./sort)
-- [x] 直接插入排序
-- [x] 希尔排序
-- [x] 冒泡排序
-- [x] 快速排序
-- [x] 简单选择排序
-- [ ] 堆排序
-- [x] 归并排序
-- [ ] 基数排序
+#### 内部排序
+- [x] [直接插入排序](sort/insert_sort.cpp)
+- [x] [希尔排序](sort/shell_sort.cpp)
+- [x] [冒泡排序](sort/bubble_sort.cpp)
+- [x] [快速排序](sort/quick_sort.cpp)
+- [x] [简单选择排序](sort/select_sort.cpp)
+- [ ] [堆排序](sort/heap_sort.cpp)
+- [x] [归并排序](sort/merge_sort.cpp)
+- [ ] [基数排序](sort/radix_sort.cpp)
 
 ### 目录结构
 
