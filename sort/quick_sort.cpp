@@ -12,12 +12,15 @@ int Partition(SqList &L, int low, int high)
         // 从两端向中间扫描
         while (low < high && L.r[high].key >= pivot) --high;
         L.r[low] = L.r[high];   // 比 pivot 小的交换到 low 位置
-        while (low < high && L.r[high].key <= pivot) ++low;
+        // L.r[high] = L.r[0];
+        while (low < high && L.r[low].key <= pivot) ++low;
         L.r[high] = L.r[low];   // 比 pivot 大的交换到 high 位置
+        // L.r[low] = L.r[0];
     }
     L.r[low] = L.r[0];
     return low;
 }
+
 void QSort(SqList &L, int low, int high)
 {
     if (low < high)

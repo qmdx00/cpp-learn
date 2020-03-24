@@ -37,7 +37,7 @@
 - [x] [简单选择排序](sort/select_sort.cpp)
 - [ ] [堆排序](sort/heap_sort.cpp)
 - [x] [归并排序](sort/merge_sort.cpp)
-- [ ] [基数排序](sort/radix_sort.cpp)
+- [x] [基数排序](sort/radix_sort.cpp)
 
 ### 目录结构
 
