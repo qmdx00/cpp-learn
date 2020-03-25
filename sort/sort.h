@@ -3,13 +3,13 @@
 
 #include "../common/status.h"
 
+
 #define MAX_SIZE 20  // 需要排序的顺序表的长度
 typedef int KeyType; // 关键字类型
 typedef struct
 {
     KeyType key;
 } RedType; // 记录类型
-
 typedef struct
 {
     RedType r[MAX_SIZE + 1]; // r[0]闲置或用作哨兵单元
@@ -30,10 +30,9 @@ void BubbleSort(SqList &);
 void QuickSort(SqList &);
 // 简单选择排序
 void SelectSort(SqList &);
-// 堆排序
-void HeapSort(SqList &);
 // 归并排序
 void MergeSort(SqList &);
+
 
 #define MAX_NUM_OF_KEY 8 // 关键字位数的最大值
 #define RADIX 10         // 关键字基数，十进制即 0～9 共10个
@@ -58,5 +57,10 @@ Status InitList_SL(SLList &L, int m, int n, int *);
 Status TraverseList_SL(SLList, Status (*Visit)(SLCell, int));
 // 基数排序
 void RadixSort(SLList &);
+
+
+typedef SqList HeapType;
+// 堆排序
+void HeapSort(HeapType &);
 
 #endif // SORT_H

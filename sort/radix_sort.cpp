@@ -7,12 +7,9 @@ int ord(KeysType k)
     return k;
 }
 // 求 f[j] 后的第一个非空子表
-int succ(ArrType f, int j)
+int succ(int j)
 {
-    int i;
-    for (i = j + 1; f[i] != 0; i++)
-        ;
-    return i;
+    return j + 1;
 }
 
 void Distribute(SLCell r[], int i, ArrType &f, ArrType &e)
@@ -43,7 +40,7 @@ void Collect(SLCell r[], int i, ArrType f, ArrType e)
     // e[0..RADIX-1] 为各子表的尾指针
     int j, t;
     // 找第一个非空子表
-    for (j = 0; j < RADIX && !f[j]; j = succ(f, j))
+    for (j = 0; j < RADIX && !f[j]; j = succ(j))
         ;
     if (j < RADIX)
     {
@@ -53,7 +50,7 @@ void Collect(SLCell r[], int i, ArrType f, ArrType e)
         while (j < RADIX)
         {
             //找下一个非空子表
-            for (j = succ(f, j); j < RADIX - 1 && !f[j]; j = succ(f, j))
+            for (j = succ(j); j < RADIX - 1 && !f[j]; j = succ(j))
                 ;
             if (f[j] && j < RADIX)
             {

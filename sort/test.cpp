@@ -19,12 +19,12 @@ Status visit_SL(SLCell cell, int n)
 
 int main(int argc, char const *argv[])
 {
-    // SqList L;
-    // cout << "unsorted array: " << endl
-    //      << "9 4 1 3 5 8 10 7 2 6" << endl;
-    // // 9 4 1 3 5 8 10 7 2 6
-    // int arr[] = {9, 4, 1, 3, 5, 8, 10, 7, 2, 6};
-    // InitList(L, 10, arr);
+    SqList L;
+    cout << "unsorted array: " << endl
+         << "9 4 1 3 5 8 10 7 2 6" << endl;
+    // 9 4 1 3 5 8 10 7 2 6
+    int arr[] = {9, 4, 1, 3, 5, 8, 10, 7, 2, 6};
+    InitList(L, 10, arr);
 
     // // 直接插入排序
     // InsertSort(L);
@@ -63,18 +63,25 @@ int main(int argc, char const *argv[])
     // TraverseList(L, visit);
     // cout << endl;
 
-    SLList SL;
-    cout << "unsorted array: " << endl
-         << "123 214 120 315 403 552" << endl;
-    // 123 214 120 315 403 552
-    int arr1[] = {123, 214, 120, 315, 403, 552};
-    InitList_SL(SL, 3, 6, arr1);
-
-    // 基数排序
-    RadixSort(SL);
+    // 堆排序
+    HeapSort(L);
     cout << "result after sort: " << endl;
-    TraverseList_SL(SL, visit_SL);
+    TraverseList(L, visit);
     cout << endl;
+
+
+    // SLList SL;
+    // cout << "unsorted array: " << endl
+    //      << "123 214 120 315 403 552" << endl;
+    // // 123 214 120 315 403 552
+    // int arr1[] = {123, 214, 120, 315, 403, 552};
+    // InitList_SL(SL, 3, 6, arr1);
+
+    // // 基数排序
+    // RadixSort(SL);
+    // cout << "result after sort: " << endl;
+    // TraverseList_SL(SL, visit_SL);
+    // cout << endl;
 
     return 0;
 }
