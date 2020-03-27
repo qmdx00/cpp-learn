@@ -16,19 +16,36 @@ int main(int argc, char const *argv[])
     // ABD##E##CF###
     CreateBiTree(T);
 
-    cout << "previous order traverse: " << endl;
+    //=======================递归======================//
+    cout << "previous order traverse (recursion): " << endl;
     // A B D E C F 
     PreOrderTraverse_recursion(T, visit);
     cout << endl;
 
-    cout << "inter order traverse: " << endl;
+    cout << "inter order traverse (recursion): " << endl;
     // D B E A F C 
     InOrderTraverse_recursion(T, visit);
     cout << endl;
 
-    cout << "post order traverse: " << endl;
+    cout << "post order traverse (recursion): " << endl;
     // D E B F C A
     PostOrderTraverse_recursion(T, visit);
+    cout << endl;
+
+    //=======================非递归======================//
+    cout << "previous order traverse: " << endl;
+    // A B D E C F 
+    PreOrderTraverse(T, visit);
+    cout << endl;
+
+    cout << "inter order traverse: " << endl;
+    // D B E A F C 
+    InOrderTraverse(T, visit);
+    cout << endl;
+
+    cout << "post order traverse: " << endl;
+    // D E B F C A
+    PostOrderTraverse(T, visit);
     cout << endl;
 
     cout << "level order traverse: " << endl;

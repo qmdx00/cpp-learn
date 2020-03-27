@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <stack>
 #include "binary_tree.h"
 
 using namespace std;
@@ -66,7 +67,7 @@ Status PostOrderTraverse_recursion(BiTree T, Status (*Visit)(TElemType))
     else
         return OK;
 }
-// 层次遍历(递归)
+// 层次遍历(非递归)
 Status LevelOrderTraverse(BiTree T, Status (*Visit)(TElemType))
 {
     BiTree p;
@@ -82,6 +83,78 @@ Status LevelOrderTraverse(BiTree T, Status (*Visit)(TElemType))
             q.push(p->lchild);
         if (p->rchild)
             q.push(p->rchild);
+    }
+    return OK;
+}
+
+// 前序遍历(非递归)   根-左-右
+Status PreOrderTraverse(BiTree T, Status (*Visit)(TElemType))
+{
+    stack<BiTree> s;
+    BiTree p = T;
+    while (p || !s.empty())
+    {
+        while (p)
+        {
+            Visit(p->data);
+            s.push(p);
+            p = p->lchild;
+        }
+        if (!s.empty())
+        {
+            p = s.top();
+            s.pop();
+            p = p->rchild;
+        }
+    }
+    return OK;
+}
+// 中序遍历(非递归)   左-根-右
+Status InOrderTraverse(BiTree T, Status (*Visit)(TElemType))
+{
+    stack<BiTree> s;
+    BiTree p = T;
+    while (p || !s.empty())
+    {
+        while (p)
+        {
+            s.push(p);
+            p = p->lchild;
+        }
+        p = s.top();
+        s.pop();
+        Visit(p->data);
+        p = p->rchild;
+    }
+    return OK;
+}
+// 后序遍历(非递归)   左-右-根
+Status PostOrderTraverse(BiTree T, Status (*Visit)(TElemType))
+{
+    stack<BiTree> s;
+    BiTree p = T, r = NULL;
+    while (p || !s.empty())
+    {
+        if (p)
+        {
+            s.push(p);
+            p = p->lchild;
+        }
+        else
+        {
+            p = s.top();
+            if (p->rchild && p->rchild != r) p = p->rchild;
+            else
+            {
+                p = s.top();
+                s.pop();
+                Visit(p->data);
+                r = p;
+                p = NULL;
+            }
+            
+        }
+        
     }
     return OK;
 }
