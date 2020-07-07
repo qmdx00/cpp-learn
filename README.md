@@ -18,16 +18,26 @@
 - [x] [顺序循环队列](queue/sequence_queue)
 
 #### 串
-
-#### 广义表
+- [ ] [KMP算法]()
 
 #### 树
 - [x] [二叉树](tree/binary_tree)
 - [x] [线索二叉树](tree/threaded_binary_tree)
+- [ ] [二叉排序树(BST)]()
+- [ ] [平衡二叉树(AVL)]()
+- [ ] [Huffman树]()
 
 #### 图
-
+- [ ] [广度优先搜索]()
+- [ ] [深度优先搜索]()
+- [ ] [Prim算法]()
+- [ ] [Kruskal算法]()
+- [ ] [Dijkstra算法]()
+- [ ] [Floyd算法]()
 #### 查找
+- [ ] [二分查找]()
+- [ ] [B树]()
+- [ ] [散列表]()
 
 #### 内部排序
 - [x] [直接插入排序](sort/insert_sort.cpp)
